@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   DESIGN TOKENS — SALA DE EVENTOS OHANA
+   Paleta cálida (arena + terracota) con tipografía editorial.
+   --------------------------------------------------------------- */
+@theme {
+  /* Fuentes */
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-instrument);
+
+  /* Colores de marca */
+  --color-sand: #f6f1e7;
+  --color-surface: #fffdf8;
+  --color-ink: #231c14;
+  --color-ink-soft: #6c6153;
+  --color-accent: #c14b25;
+  --color-accent-strong: #9a3715;
+  --color-accent-soft: #f5e3d8;
+  --color-accent-ink: #7d2c0f;
+
+  /* Dark mode */
+  --color-night: #1a140e;
+  --color-night-soft: #282119;
+  --color-frost: #f2ebdf;
+
+  /* Radios */
+  --radius-btn: 999px;
+  --radius-card: 22px;
+
+  /* Sombras tintadas */
+  --shadow-soft: 0 18px 50px -20px rgb(193 75 37 / 0.22);
+  --shadow-card: 0 24px 60px -24px rgb(35 28 20 / 0.22);
+}
+
+/* Base */
+:root {
+  --bg: #f6f1e7;
+  --fg: #231c14;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a140e;
+    --fg: #f2ebdf;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+.dark-section {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* Serif editorial de marca */
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 400;
+}
+
+.font-display em {
+  font-style: italic;
+}
+
+/* Selección */
+::selection {
+  background: rgb(193 75 37 / 0.18);
+}
+
+/* Focus accesible */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Grain / textura fijada */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Zoom lento del hero */
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.hero-zoom {
+  animation: hero-zoom 2.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-zoom {
+    animation: none;
+  }
+}
