@@ -16,9 +16,6 @@ export default function Eventos() {
           transition={{ duration: 0.6 }}
           className="max-w-2xl"
         >
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-accent">
-            03 — Eventos
-          </p>
           <h2 className="font-display text-4xl leading-[1.05] tracking-tight sm:text-5xl">
             Ideas para celebrar <em className="text-accent">en Ohana</em>
           </h2>
@@ -46,9 +43,6 @@ export default function Eventos() {
                   height={600}
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
                 />
-                <span className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-accent-ink backdrop-blur-sm">
-                  En Ohana
-                </span>
               </div>
               <div className="flex flex-1 flex-col p-6">
                 <h3 className="font-display text-2xl">{e.title}</h3>

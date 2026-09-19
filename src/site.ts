@@ -35,31 +35,31 @@ export const gallery = [
   {
     id: "17244244",
     alt: "Salón amplio con techos altos y luz natural",
-    caption: "Un salón donde el espacio respira",
+    caption: "El salón principal, con techos altos",
     className: "md:col-span-7 md:row-span-2",
   },
   {
     id: "16985178",
     alt: "Sala de banquetes preparada para invitados",
-    caption: "Lista para tus invitados",
+    caption: "Sala preparada para banquetes",
     className: "md:col-span-5",
   },
   {
     id: "17206048",
     alt: "Decoración elegante con mesas redondas y flores",
-    caption: "Detalles que hacen el momento",
+    caption: "Mesa redonda con decoración floral",
     className: "md:col-span-5",
   },
   {
     id: "36766850",
     alt: "Banquete con decoración floral",
-    caption: "Mesa y ambiente, a tu medida",
+    caption: "Detalle de la mesa y los arreglos",
     className: "md:col-span-7",
   },
   {
     id: "37958132",
     alt: "Celebración al aire libre con luces cálidas",
-    caption: "Tus celebraciones, también de noche",
+    caption: "Celebraciones al aire libre, de noche",
     className: "md:col-span-12",
   },
 ];

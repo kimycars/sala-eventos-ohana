@@ -35,9 +35,6 @@ export default function Contacto() {
           transition={{ duration: 0.6 }}
           className="lg:col-span-5"
         >
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-accent">
-            04 — Contacto
-          </p>
           <h2 className="font-display text-4xl leading-[1.05] tracking-tight sm:text-5xl">
             Cuéntanos tu <em className="text-accent">evento</em>
           </h2>

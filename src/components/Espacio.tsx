@@ -16,9 +16,6 @@ export default function Espacio() {
           transition={{ duration: 0.6 }}
           className="max-w-2xl"
         >
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-accent">
-            02 — El espacio
-          </p>
           <h2 className="font-display text-4xl leading-[1.05] tracking-tight sm:text-5xl">
             Así es <em className="text-accent">Ohana</em>
           </h2>

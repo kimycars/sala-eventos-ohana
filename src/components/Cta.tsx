@@ -24,9 +24,6 @@ export default function Cta() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-night/80 via-night/40 to-night/30" />
         <div className="relative flex flex-col items-center px-6 py-24 text-center md:py-36">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-white/80">
-            Tus planes, nuestro espacio
-          </p>
           <h2 className="font-display max-w-2xl text-4xl leading-[1.05] text-white sm:text-5xl md:text-6xl">
             ¿Tienes un evento <em>en mente</em>?
           </h2>

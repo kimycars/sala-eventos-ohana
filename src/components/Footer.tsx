@@ -78,7 +78,7 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-frost/10 pt-7 text-xs text-frost/50 sm:flex-row">
           <p>
-            © {new Date().getFullYear()} {brand.name} · {brand.city}
+            © {new Date().getFullYear()} {brand.name}, {brand.city}
           </p>
           <p>Diseñado y cuidado para tus celebraciones.</p>
         </div>

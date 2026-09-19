@@ -1,7 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, useReducedMotion } from "motion/react";
+import { useState } from "react";
+import {
+  motion,
+  useMotionValueEvent,
+  useReducedMotion,
+  useScroll,
+} from "motion/react";
 import { CalendarCheck, List, X } from "@phosphor-icons/react";
 import { brand } from "@/site";
 
@@ -15,13 +20,13 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const reduce = useReducedMotion();
+  const { scrollY } = useScroll();
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  useMotionValueEvent(scrollY, "change", (y) => {
+    setScrolled(y > 16);
+  });
+
+  const dark = !scrolled;
 
   return (
     <header
@@ -37,13 +42,23 @@ export default function Nav() {
           <img
             src="/logo.jpg"
             alt={`Logo de ${brand.name}`}
-            className="h-9 w-9 rounded-full border border-ink/10 object-cover dark:border-frost/20"
+            className={`h-9 w-9 rounded-full border object-cover transition-colors ${
+              dark ? "border-white/40" : "border-ink/10 dark:border-frost/20"
+            }`}
           />
           <span className="leading-tight">
-            <span className="block font-display text-lg">
+            <span
+              className={`block font-display text-lg transition-colors ${
+                dark ? "text-white" : "text-ink dark:text-frost"
+              }`}
+            >
               {brand.shortName}
             </span>
-            <span className="block text-[10px] font-semibold uppercase tracking-[0.22em] text-ink-soft dark:text-frost/70">
+            <span
+              className={`block text-[10px] font-semibold uppercase tracking-[0.22em] transition-colors ${
+                dark ? "text-white/70" : "text-ink-soft dark:text-frost/70"
+              }`}
+            >
               Sala de eventos
             </span>
           </span>
@@ -54,7 +69,11 @@ export default function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-ink-soft transition-colors hover:text-ink dark:text-frost/70 dark:hover:text-frost"
+              className={`text-sm font-medium transition-colors ${
+                dark
+                  ? "text-white/80 hover:text-white"
+                  : "text-ink-soft hover:text-ink dark:text-frost/70 dark:hover:text-frost"
+              }`}
             >
               {l.label}
             </a>
@@ -73,7 +92,11 @@ export default function Nav() {
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-ink/10 text-ink dark:border-frost/15 dark:text-frost md:hidden"
+            className={`flex h-11 w-11 items-center justify-center rounded-full border transition-colors md:hidden ${
+              dark
+                ? "border-white/40 text-white"
+                : "border-ink/10 text-ink dark:border-frost/15 dark:text-frost"
+            }`}
           >
             {open ? <X size={22} /> : <List size={22} />}
           </button>
